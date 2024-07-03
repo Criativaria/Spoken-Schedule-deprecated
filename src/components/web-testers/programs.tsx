@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
-import { GetPrograms, Program } from "../../web/get-programs";
+import { GetPrograms, Program } from "../../../web/get-programs";
 
 export type ProgramsProps = {
   channelId: string;

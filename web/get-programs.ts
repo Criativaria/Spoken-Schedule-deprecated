@@ -1,6 +1,8 @@
 import axios from "axios";
 import { load } from "cheerio";
 
+//oi amiga nao precisa mexer aqui! É a pag que eu faço o webScrapping dos programas, se quiser eu te explico bonitinho dps
+
 export type Program = {
   type: string;
   name: string;

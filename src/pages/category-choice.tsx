@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
-import { GetCategories } from "../web/get-categories";
+import { GetCategories } from "../../web/get-categories";
 
 export function CategoriesChoice({ navigation }) {
   const [infos, setInfos] = useState([]);
@@ -24,8 +24,16 @@ export function CategoriesChoice({ navigation }) {
         gap: 30,
       }}
     >
+      <Text style={{ fontSize: 30, fontWeight: 600 }}>Categorias</Text>
       {infos.map((item, index) => (
-        <View key={index}>
+        <View
+          key={index}
+          style={{
+            borderWidth: 2,
+            borderColor: "black",
+            borderStyle: "solid",
+          }}
+        >
           <Pressable
             onPress={() =>
               navigation.navigate("BroadcastersChoice", { category: item.id })

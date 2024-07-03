@@ -2,7 +2,9 @@ import axios from "axios";
 import { load } from "cheerio";
 import { error } from "console";
 import { useEffect, useState } from "react";
-import { Broadcasters } from "../components/web-testers/broadcasters";
+import { Broadcasters } from "../src/components/web-testers/broadcasters";
+
+//oi amiga nao precisa mexer aqui! É a pag que eu faço o webScrapping das emissoras, se quiser eu te explico bonitinho dps
 
 export type Broadcaster = {
     name: string;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
-import { GetPrograms, Program } from "../../web/get-programs";
-import { GetCategories } from "../../web/get-categories";
+import { GetPrograms, Program } from "../../../web/get-programs";
+import { GetCategories } from "../../../web/get-categories";
 
 export function Categories() {
   const [infos, setInfos] = useState([]);

@@ -8,10 +8,7 @@ export default function App() {
     <>
       <NavigationContainer>
         <Router />
-        {/*se quiser testar um componente especifico só importar ele aqui no lugar desse Router, mas nao esquece de colocar de volta se nao quebra toda a navegação entre as pags*/}
       </NavigationContainer>
     </>
   );
 }
-
-

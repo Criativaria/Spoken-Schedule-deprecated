@@ -1,8 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const STORAGE_KEY = "FAVORITES_PROGRAMS";
 
-//oi amg, nao precisa mexer aqui é so um componente para favoritar programas!
-
 export type FavoriteProgramData = {
     key: string,
     name: string,
@@ -26,15 +24,6 @@ export async function ClearFavorite(program: FavoriteProgramData) {
     }
 }
 
-async function FindFavoritesProgramsTime() {
-    try {
-
-
-    } catch (error) {
-        console.log(error)
-    }
-}
-
 async function SaveNewFavorites(programs: FavoriteProgramData[]) {
     try {
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(programs));
@@ -49,7 +38,9 @@ export async function SaveFavoritesPrograms(program: FavoriteProgramData) {
         data.push(program);
         const newData = RemoveDuplicates(data)
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+
         return newData;
+
     } catch (error) {
         console.log("erro no save-info" + error);
     }
@@ -67,11 +58,9 @@ export async function GetFavoritesPrograms(channelId?: string) {
         }
         return data
     } catch (error) {
-        console.log("erro no get-info" + error);
+        console.log("erro no GetFavoritesPrograms" + error);
     }
 };
-
-
 
 export async function ClearAll() {
     try {

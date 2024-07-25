@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { GetCategories } from "../../web/get-categories";
+import { Heart } from "lucide-react-native";
 
 export function CategoriesChoice({ navigation }) {
   const [infos, setInfos] = useState([]);
 
   useEffect(() => {
-    passChannel();
+    passCategories();
   }, []);
-
-  async function passChannel() {
+  async function passCategories() {
     const passCategories = await GetCategories();
     setInfos(passCategories);
   }
@@ -25,6 +25,7 @@ export function CategoriesChoice({ navigation }) {
       }}
     >
       <Text style={{ fontSize: 30, fontWeight: 600 }}>Categorias</Text>
+
       {infos.map((item, index) => (
         <View
           key={index}
@@ -35,6 +36,7 @@ export function CategoriesChoice({ navigation }) {
           }}
         >
           <Pressable
+            aria-label={"categoria" + item.name}
             onPress={() =>
               navigation.navigate("BroadcastersChoice", { category: item.id })
             }

@@ -18,20 +18,20 @@ export function ProgramsChoice({ route, navigation }) {
   const [showFavoritesTime, setShowFavoritesTime] = useState([]);
 
   useEffect(() => {
-    passPrograms();
+    PassPrograms();
     HandleGetFavorites();
   }, []);
 
   useEffect(() => {
-    findFavoritesProgramsTime(showFavorites);
+    FindFavoritesProgramsTime(showFavorites);
   }, [showFavorites]);
 
-  async function passPrograms() {
+  async function PassPrograms() {
     const passPrograms = await GetPrograms(channelId);
     setInfos(passPrograms);
   }
 
-  async function findFavoritesProgramsTime(
+  async function FindFavoritesProgramsTime(
     favoriteProgram: FavoriteProgramData[]
   ) {
     const allTheTimes = await GetPrograms(channelId);

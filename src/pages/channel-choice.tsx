@@ -4,14 +4,12 @@ import { GetCategories } from "../../web/get-categories";
 import { Broadcaster, GetBroadcasters } from "../../web/get-broadcasters";
 import { Heart, Trash } from "lucide-react-native";
 import {
-  clearAll,
+  ClearAll,
   FavoriteChannelData,
   GetFavoritesChannels,
   RemoveFavorite,
   SaveFavoritesChannels,
 } from "../async-storage/favorites-channels-storage";
-import { info } from "console";
-import { ClearAll } from "../async-storage/favorites-programs-storage";
 
 export function ChannelChoice({ route, navigation }) {
   const { category } = route.params;
@@ -34,11 +32,11 @@ export function ChannelChoice({ route, navigation }) {
   };
 
   const SaveFavorites = async (name: string, channelId: string) => {
-    const Channelkey = `channel${name}from${category}`;
+    const channelKey = `channel${name}from${category}`;
 
     if (showFavorites.length <= 4) {
       await SaveFavoritesChannels({
-        key: Channelkey,
+        key: channelKey,
         name,
         category,
         channelId,

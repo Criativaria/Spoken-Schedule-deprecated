@@ -10,10 +10,10 @@ export function Broadcasters(props: BroadcastersProps) {
   const [infos, setInfos] = useState<Broadcaster[]>([]);
 
   useEffect(() => {
-    passBroadcaster();
+    PassBroadcaster();
   }, []);
 
-  async function passBroadcaster() {
+  async function PassBroadcaster() {
     const passPrograms = await GetBroadcasters(props.category);
     setInfos(passPrograms);
   }

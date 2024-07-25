@@ -15,10 +15,9 @@ import { ClearAll } from "../async-storage/favorites-programs-storage";
 
 export function ChannelChoice({ route, navigation }) {
   const { category } = route.params;
-  console.log(category);
-
   const [infos, setInfos] = useState<Broadcaster[]>([]);
   const [showFavorites, setShowFavorites] = useState([]);
+
   useEffect(() => {
     passBroadcaster();
     GetFavorites();
@@ -36,8 +35,18 @@ export function ChannelChoice({ route, navigation }) {
 
   const SaveFavorites = async (name: string, channelId: string) => {
     const Channelkey = `channel${name}from${category}`;
-    await SaveFavoritesChannels({ key: Channelkey, name, category, channelId });
-    await GetFavorites();
+
+    if (showFavorites.length <= 4) {
+      await SaveFavoritesChannels({
+        key: Channelkey,
+        name,
+        category,
+        channelId,
+      });
+      await GetFavorites();
+    } else {
+      return alert("nao pode nao viu");
+    }
   };
 
   const HandleRemoveFavorite = async (name: string) => {

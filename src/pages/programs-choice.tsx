@@ -67,9 +67,13 @@ export function ProgramsChoice({ route, navigation }) {
   }
 
   const HandleSaveFavorites = async (name: string, type: string) => {
-    const programId = `program${name}from${channelId}`;
-    await SaveFavoritesPrograms({ key: programId, name, type, channelId });
-    await HandleGetFavorites();
+    if (showFavorites.length >= 9) {
+      const programId = `program${name}from${channelId}`;
+      await SaveFavoritesPrograms({ key: programId, name, type, channelId });
+      await HandleGetFavorites();
+    } else {
+      return alert("pode nao viu");
+    }
   };
 
   const HandleGetFavorites = async () => {

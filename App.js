@@ -1,7 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { Router } from "./src/router/router";
-import { ClearAll } from "./src/async-storage/favorites-programs-storage";
-
+import { View } from "react-native";
 
 export default function App() {
   return (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { GetCategories } from "../../web/get-categories";
 import { Heart } from "lucide-react-native";
+import { GetAllChannels } from "../components/get-all-channels";
 
 export function CategoriesChoice({ navigation }) {
   const [infos, setInfos] = useState([]);
@@ -9,6 +10,16 @@ export function CategoriesChoice({ navigation }) {
   useEffect(() => {
     passCategories();
   }, []);
+
+  useEffect(() => {
+    JustIdsArray();
+  }, [infos]);
+
+  async function JustIdsArray() {
+    const JustId = infos.map((item) => item.id);
+    GetAllChannels(JustId);
+  }
+
   async function passCategories() {
     const passCategories = await GetCategories();
     setInfos(passCategories);

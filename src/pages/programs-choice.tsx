@@ -67,7 +67,7 @@ export function ProgramsChoice({ route, navigation }) {
   }
 
   const HandleSaveFavorites = async (name: string, type: string) => {
-    if (showFavorites.length >= 9) {
+    if (showFavorites.length <= 9) {
       const programId = `program${name}from${channelId}`;
       await SaveFavoritesPrograms({ key: programId, name, type, channelId });
       await HandleGetFavorites();

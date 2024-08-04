@@ -61,6 +61,8 @@ export async function SaveNewFavoritesChannels(channels: FavoriteChannelData[]) 
 
 }
 
+
+
 export async function ClearAll() {
     try {
         await AsyncStorage.clear()

@@ -10,16 +10,26 @@ import {
   RemoveFavorite,
   SaveFavoritesChannels,
 } from "../async-storage/favorites-channels-storage";
+import { GetAllPrograms } from "../components/get-all-programs";
+import { info } from "console";
 
 export function ChannelChoice({ route, navigation }) {
   const { category } = route.params;
   const [infos, setInfos] = useState<Broadcaster[]>([]);
   const [showFavorites, setShowFavorites] = useState([]);
-
   useEffect(() => {
     passBroadcaster();
     GetFavorites();
   }, []);
+
+  useEffect(() => {
+    JustIdsArray();
+  }, [infos]);
+
+  async function JustIdsArray() {
+    const JustId = infos.map((item) => item.id);
+    GetAllPrograms(JustId);
+  }
 
   async function passBroadcaster() {
     const passPrograms = await GetBroadcasters(category);
